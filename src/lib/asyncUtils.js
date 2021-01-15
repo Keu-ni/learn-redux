@@ -44,7 +44,7 @@ export const createPromiseThunk = (type, promiseCreator) => {
   return thunkCreator;
 };
 
-export const handleAsyncActions = (type, key) => {
+export const handleAsyncActions = (type, key, keepData) => {
   const [SUCCESS, ERROR] = [`${type}_SUCCESS`, `${type}_ERROR`];
 
   const reducer = (state, action) => {
@@ -52,7 +52,7 @@ export const handleAsyncActions = (type, key) => {
       case type:
         return {
           ...state,
-          [key]: reducerUtils.loading(),
+          [key]: reducerUtils.loading(keepData ? state[key].date : null),
         };
       case SUCCESS:
         return {

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getPost, goToHome } from '../modules/posts';
+import { getPost, goToHome, printState } from '../modules/posts';
 import Post from '../components/Post';
 import { reducerUtils } from '../lib/asyncUtils';
 
@@ -22,6 +22,7 @@ function PostContainer({ postId }) {
   return (
     <>
       <button onClick={() => dispatch(goToHome())}>Home</button>
+      <button onClick={() => dispatch(printState())}>Print State</button>
       <Post post={data} />
     </>
   );

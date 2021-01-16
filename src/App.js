@@ -7,9 +7,10 @@ import PostPage from './pages/PostPage';
 function App() {
   return (
     <>
-      <Route path="/" component={PostListPage} exact={true}></Route>
+      <CounterContainer />
+      <Route path="/" component={PostListPage} exact={true} />
       <Route path="/:id" component={PostPage} />
-      <Route path="counter" component={CounterContainer} />
+      {/* <Route path="/counter" component={CounterContainer} /> */}
     </>
   );
 }
